@@ -2,7 +2,9 @@
 	background-color: #ccc;
 	height: 500px;
 
-	/* Para trabalhar com flexbox, começamos definindo display como flex */
+	/*
+	Para trabalhar com flexbox, começamos definindo display como flex
+	*/
 	display: flex;
 
 	/* 
@@ -18,7 +20,7 @@
 	wrap
 	wrap-reverse
 	*/
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 
 	/* Propriedade estenográfica: [FLEX-DIRECTION] [FLEX-WRAP] */
 	/* flex-flow: row wrap-reverse; */
@@ -43,16 +45,19 @@
 	*/
 	align-items: stretch;
 
-	/* Alinhamento vertical, mas somente quando se TEM QUEBRA DE LINHAS */
 	/*
-	stretch - Quando os elementos internos estão sem altura fixa, ele faz com que os mesmos creçam igualmente.
+	Alinhamento vertical, mas somente quando se TEM QUEBRA DE LINHAS. 
+	Caso contrário, terá seus efeitos diferentes. 
+	*/
+	/*
+	stretch (padrão) - Quando os elementos internos estão sem altura fixa, ele faz com que os mesmos creçam igualmente.
 	flex-start
 	flex-end
 	center
 	space-between
 	space-around
 	*/
-	align-content: stretch;
+	align-content: flex-start;
 }
 
 .item {
@@ -60,5 +65,68 @@
 	color: #fff;
 	padding: 20px;
 	margin: 5px;
-	width: 200px;
+	height: 30px;
+
+	/*
+	Caso assuma o valor 1, faz com que todos os elementos tenham a 
+	mesma largura, sendo 0 o valor padrão.
+
+	OBS: Não há necessidade do width, com a presente do flex-grow.
+	*/
+	flex-grow: 1;
+	/*
+	Capacidade de redução do elemento, quando a tela diminui. 
+	OBS: Neste caso, só funcionou porque o professor mudou o flex-wrap 
+	para nowrap e o flex-basis para 300px.
+	*/
+	flex-shrink: 1;
+	flex-basis: 300px;
+}
+
+.article-01 {
+	/*
+	Altera a posição do elemento, com relação ao outros, dentro do 
+	parent 
+	*/
+	/* order: 3; */
+
+	/*
+	Fará com que o elemento tente ocupar 3x mais o espaço extra do que 
+	os outros itens dentro do mesmo container.
+	Para ver a mudança real, colocar outro flex-grow com valor 1 em 
+	.item
+	*/
+	/* flex-grow: 3; */
+}
+.article-02 {
+	/*order: 1;*/
+	/*
+	Fará o posicionamento somente do elemento que o contém. Além disso, 
+	dependo do valor do flex-direction.
+	flex-direction: row; ? o posicionamento deste elemento será na
+	vertical.
+	flex-direction: column; ? o posicionamento deste elemento será na
+	horizontal.
+
+	center
+	flex-start
+	flex-end
+	baseline
+	stretch
+	auto (padrão)
+	*/
+	align-self: auto;
+	flex-shrink: 3;
+}
+.article-03 {
+	/* order: 2; */
+	/* Define a largura inicial do elemento */
+	/* flex-basis: 20px; */
+}
+.article-04 {
+	/* order: 4; */
+	/*
+	Propriedade estenográfica: [FLEX-GROW] [FLEX-SHRINK] [FLEX-BASIS] 
+	*/
+	flex: 1 1 300px;
 }
