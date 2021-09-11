@@ -1,0 +1,64 @@
+.container {
+	background-color: #ccc;
+	height: 500px;
+
+	/* Para trabalhar com flexbox, começamos definindo display como flex */
+	display: flex;
+
+	/* 
+	row (padrão, com o display: flex)
+	column
+	row-reverse
+	column-reverse
+	*/
+	flex-direction: row;
+
+	/* 
+	nowrap (padrão)
+	wrap
+	wrap-reverse
+	*/
+	flex-wrap: wrap;
+
+	/* Propriedade estenográfica: [FLEX-DIRECTION] [FLEX-WRAP] */
+	/* flex-flow: row wrap-reverse; */
+
+	/* Alinhamento horizontal */
+	/*
+	flex-start (padrão)
+	flex-end
+	center
+	space-between
+	space-around
+	*/
+	justify-content: flex-start;
+
+	/* Alinhamento vertical */
+	/*
+	stretch (padrão)
+	flex-start
+	flex-end
+	center
+	baseline (alinhamento pelo conteúdo)
+	*/
+	align-items: stretch;
+
+	/* Alinhamento vertical, mas somente quando se TEM QUEBRA DE LINHAS */
+	/*
+	stretch - Quando os elementos internos estão sem altura fixa, ele faz com que os mesmos creçam igualmente.
+	flex-start
+	flex-end
+	center
+	space-between
+	space-around
+	*/
+	align-content: stretch;
+}
+
+.item {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	margin: 5px;
+	width: 200px;
+}
